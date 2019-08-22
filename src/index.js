@@ -3,6 +3,7 @@ const {
 } = require('electron');
 const updater = require('electron-simple-updater');
 const log = require('electron-log');
+require('electron-reload')(__dirname);
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require

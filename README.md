@@ -49,6 +49,8 @@ To execute the automated tests, simply run `npm test` from the project directory
 
 To open the DevTools when the application loads (for debugging purposes) add the following code to the createWindow() function of the index.js file: `mainWindow.webContents.openDevTools();`
 
+To run with hot-reloading add the following code to index.js `require('electron-reload')(__dirname);`
+
 # _Conventions_
 
 The project extends the `eslint-config-airbnb` [ESLint](https://eslint.org/) configuration. This provides formatting standards for breaks, line length, declarations, etc.

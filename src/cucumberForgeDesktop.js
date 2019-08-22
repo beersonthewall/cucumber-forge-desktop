@@ -13,6 +13,7 @@ let selectedFolderPath;
 let projectName;
 let reportHTML;
 let tag;
+let projectFolderPath;
 
 const getFeatureFiles = (directoryName) => {
   // Recurse on directories:
@@ -135,3 +136,25 @@ const toggleReviewMode = () => {
   }
 };
 /* eslint-enable no-param-reassign */
+
+/*
+ * Creates a new project directory for tracking multiple versions of the same
+ * report.
+ */
+const createProject = (folderPath) => {
+    const prjName = $('#prjNameInput').val();
+    fs.mkdir(path.join(projectFolderPath, prjName)).then(function() {
+        // success
+    }, function(err) {
+        // failure
+        
+    });
+};
+
+const changeDir = (folderPath) => {
+    projectFolderPath = folderPath;
+};
+
+const openProject = () => {};
+
+const saveProject = () => {};

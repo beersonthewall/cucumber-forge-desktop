@@ -48,13 +48,67 @@
                   aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-cog" aria-hidden="true"></i>
           </button>
-          <div class="dropdown-menu dropdown-menu-right" ario-labelledby="settingsMenuButton">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="settingsMenuButton">
             <a class="dropdown-item" href="#" onClick="toggleReviewMode()">Review Mode</a>
           </div>
         </div>
+
+        <!-- PROJECTS -->
+        <div class="dropdown">
+          <button class="btn btn-secondary btn-sm dropdown-toggle ml-2"
+                  type="button" id="projectsListButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-list" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right"
+               aria-labelledby="projectsListButton">
+            <button class="dropdown-item" data-toggle="modal" data-target="#createPrjModal">
+              Create Project
+            </button>
+            <button class="dropdown-item" data-toggle="modal" data-target="">Open Project</button>
+            <button class="dropdown-item" data-toggle="modal" data-target="">Save Project</button>
+          </div>
+        </div>
+
       </form>
     </nav>
     <div id="output"></div>
     <img id="loadingInd" src="./resources/loading.gif" alt="Loading">
+
+    <!-- Create project modal -->
+    <div class="modal fade" id="createPrjModal" tabindex="-1" role="dialog"
+         aria-labelledby="title" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="title">Create Project</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="createPrjForm" onSubmit="createProject()">
+            <div class="form-group">
+              <div class="modal-body">
+
+                <label for="prjNameInput">Project Name</label>
+                <input type="text" class="form-control" id="prjNameInput">
+                <hr>
+                <label for="directoryInput">
+                  <i class="fa fa-folder-open"></i> Directory
+                </label>
+                <input type="file" class="form-control-file" id="directoryInput"
+                       onChange="changeDir(folderSelection.files[0].path)"
+                       webkitdirectory mozdirectory msdirectory odirectory directory multiple>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
