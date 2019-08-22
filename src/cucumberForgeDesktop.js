@@ -141,13 +141,17 @@ const toggleReviewMode = () => {
  * Creates a new project directory for tracking multiple versions of the same
  * report.
  */
-const createProject = (folderPath) => {
-    const prjName = $('#prjNameInput').val();
-    fs.mkdir(path.join(projectFolderPath, prjName)).then(function() {
-        // success
-    }, function(err) {
-        // failure
-        
+const createProject = () => {
+    const prjName = document.getElementById('prjNameInput').value;
+    console.log(projectFolderPath);
+    console.log(prjName);
+    fs.mkdir(path.join(projectFolderPath, prjName), (err) => {
+        if(err) {
+            document.getElementById('msgBox').innerHTML = "<div class=\"alert alert-danger\" role=\"alert\">" + err.message + "</div>";
+        }
+        else {
+            document.getElementById('msgBox').innerHTML = "<div class=\"alert alert-success\" role=\"alert\">Success</div>";
+        }
     });
 };
 
